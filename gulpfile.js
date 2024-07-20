@@ -11,6 +11,9 @@ import rename from "gulp-rename";
 // Reset
 import { deleteAsync } from "del";
 
+// Fonts
+import ttf2woff2 from "gulp-ttf2woff2";
+
 // SCSS
 import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
@@ -68,7 +71,7 @@ const libs = () => {
 };
 const fonts = () => {
   return gulp
-    .src(paths.sources.fonts + "**/*.*", { encoding: false })
+    .src(paths.sources.fonts + "**/*.ttf", { encoding: false })
     .pipe(
       plumber(
         notify.onError({
@@ -77,6 +80,7 @@ const fonts = () => {
         })
       )
     )
+    .pipe(ttf2woff2())
     .pipe(gulp.dest(paths.assets.fonts))
     .pipe(browsersync.stream());
 };

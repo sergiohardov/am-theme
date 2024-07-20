@@ -1,5 +1,6 @@
 <?php
 
+use AMTheme\Theme\Customizer;
 use AMTheme\Theme\Setup;
 
 if (!class_exists('AMTheme')) {
@@ -33,11 +34,15 @@ if (!class_exists('AMTheme')) {
             define('AMTHEME_URI', get_template_directory_uri());
             define('AMTHEME_PATH', get_template_directory());
             define('AMTHEME_TEXTDOMAIN', 'am-theme');
+
+            // Customizer
+            define('AMTHEME_FIELD_FOOTER_COPY', 'am_customizer_setting_footer_copyright');
         }
 
         private function init()
         {
-            new Setup();    // Base setup theme
+            new Setup();        // Base setup theme
+            new Customizer();   // Theme Customizer
         }
     }
     new AMTheme();
