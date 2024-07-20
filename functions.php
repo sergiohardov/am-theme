@@ -1,5 +1,7 @@
 <?php
 
+use AMTheme\Theme\Setup;
+
 if (!class_exists('AMTheme')) {
     final class AMTheme
     {
@@ -7,6 +9,7 @@ if (!class_exists('AMTheme')) {
         {
             $this->libs();
             $this->defines();
+            $this->init();
         }
 
         private function libs()
@@ -31,32 +34,11 @@ if (!class_exists('AMTheme')) {
             define('AMTHEME_PATH', get_template_directory());
             define('AMTHEME_TEXTDOMAIN', 'am-theme');
         }
+
+        private function init()
+        {
+            new Setup();    // Base setup theme
+        }
     }
     new AMTheme();
 }
-
-add_action('tgmpa_register', function () {
-    $plugins = array(
-        array(
-            'name'      => 'ACF',
-            'slug'      => 'advanced-custom-fields-pro',
-            'source'    => get_template_directory() . '/plugins/advanced-custom-fields-pro.zip',
-            'required'  => true,
-        ),
-    );
-
-    $config = array(
-        'id'           => 'am-theme',
-        'default_path' => '',
-        'menu'         => 'tgmpa-install-plugins',
-        'parent_slug'  => 'themes.php',
-        'capability'   => 'edit_theme_options',
-        'has_notices'  => true,
-        'dismissable'  => false,
-        'dismiss_msg'  => '',
-        'is_automatic' => true,
-        'message'      => '',
-    );
-
-    tgmpa($plugins, $config);
-});
