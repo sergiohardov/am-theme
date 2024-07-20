@@ -10,5 +10,7 @@
       "AMTheme\\": "./includes/"
     }
   },
-  "require": {}
+  "require": {
+    "unsplash/unsplash": "^3.2"
+  }
 }
