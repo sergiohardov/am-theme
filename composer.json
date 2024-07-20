@@ -1,0 +1,17 @@
+{
+  "name": "serhii/am-theme",
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "AMTheme\\": "./includes/"
+    }
+  },
+  "require": {
+    "unsplash/unsplash": "^3.2",
+    "tgmpa/tgm-plugin-activation": "^2.6"
+  }
+}
