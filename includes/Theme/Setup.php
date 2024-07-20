@@ -6,15 +6,11 @@ class Setup
 {
     function __construct()
     {
-        add_action('after_setup_theme', [$this, 'textdomain']);
         add_action('tgmpa_register', [$this, 'muplugins']);
+        add_action('after_setup_theme', [$this, 'textdomain']);
+        add_action('after_setup_theme', [$this, 'menus']);
         add_action('wp_enqueue_scripts', [$this, 'styles']);
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
-    }
-
-    public function textdomain()
-    {
-        load_theme_textdomain(AMTHEME_TEXTDOMAIN, AMTHEME_PATH . '/languages');
     }
 
     public function muplugins()
@@ -42,6 +38,18 @@ class Setup
         ];
 
         tgmpa($plugins, $config);
+    }
+
+    public function textdomain()
+    {
+        load_theme_textdomain(AMTHEME_TEXTDOMAIN, AMTHEME_PATH . '/languages');
+    }
+
+    public function menus()
+    {
+        register_nav_menus([
+            'header' => esc_html__('Header', AMTHEME_TEXTDOMAIN),
+        ]);
     }
 
     public function styles()
