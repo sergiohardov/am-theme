@@ -11,6 +11,7 @@
     }
   },
   "require": {
-    "unsplash/unsplash": "^3.2"
+    "unsplash/unsplash": "^3.2",
+    "tgmpa/tgm-plugin-activation": "^2.6"
   }
 }
