@@ -1,0 +1,26 @@
+@import "includes/scssvars";
+
+body {
+  background: var(--amtheme-color-white);
+  color: var(--amtheme-color-black);
+  font-family: var(--amtheme-font-default);
+  font-size: 16px;
+  font-weight: 400;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--amtheme-color-blue);
+}
+
+.am-container {
+  max-width: var(--amtheme-width-container-xxl);
+  padding: 0 25px;
+  margin: 0 auto;
+}
