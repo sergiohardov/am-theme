@@ -1,0 +1,8 @@
+.site-footer {
+  padding: 25px 0;
+  background: var(--amtheme-color-black);
+  color: var(--amtheme-color-white);
+  &__copyright {
+    text-align: center;
+  }
+}

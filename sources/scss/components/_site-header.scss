@@ -1,0 +1,13 @@
+.site-header {
+  padding: 20px 0;
+  background: var(--amtheme-color-black);
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    font-size: 25px;
+    font-weight: 700;
+  }
+}
