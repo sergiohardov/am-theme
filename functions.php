@@ -1,7 +1,8 @@
 <?php
 
-use AMTheme\Theme\Customizer;
 use AMTheme\Theme\Setup;
+use AMTheme\Theme\Customizer;
+use AMTheme\Theme\ACF;
 
 if (!class_exists('AMTheme')) {
     final class AMTheme
@@ -43,7 +44,10 @@ if (!class_exists('AMTheme')) {
         {
             new Setup();        // Base setup theme
             new Customizer();   // Theme Customizer
+            new ACF();          // ACF Settings
+
         }
     }
+
     new AMTheme();
 }
