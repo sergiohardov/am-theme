@@ -46,6 +46,8 @@ if (!class_exists('AMTheme')) {
             new Customizer();   // Theme Customizer
             new ACF();          // ACF Settings
 
+            // Theme functions
+            require_once AMTHEME_PATH . '/includes/Theme/Functions.php';
         }
     }
 
