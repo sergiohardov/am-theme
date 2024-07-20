@@ -11,9 +11,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
-	<?php get_template_part('components/site-header'); ?>
+	<?php get_template_part('components/parts/site-header'); ?>
 
 	<main>
 		<div class="am-container">
-			<h1>Content</h1>
-		</div>
