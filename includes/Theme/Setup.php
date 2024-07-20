@@ -8,6 +8,8 @@ class Setup
     {
         add_action('after_setup_theme', [$this, 'textdomain']);
         add_action('tgmpa_register', [$this, 'muplugins']);
+        add_action('wp_enqueue_scripts', [$this, 'styles']);
+        add_action('wp_enqueue_scripts', [$this, 'scripts']);
     }
 
     public function textdomain()
@@ -40,5 +42,15 @@ class Setup
         ];
 
         tgmpa($plugins, $config);
+    }
+
+    public function styles()
+    {
+        wp_enqueue_style('mainstyle', AMTHEME_URI . "/assets/css/mainstyle.min.css");
+    }
+
+    public function scripts()
+    {
+        wp_enqueue_script('mainscript', AMTHEME_URI . '/assets/js/mainscript.min.js', [], null, true);
     }
 }
