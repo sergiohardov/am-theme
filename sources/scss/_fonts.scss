@@ -1,0 +1,6 @@
+@import "includes/mixins";
+
+/* Raleway */
+@include font("Raleway", "Raleway-Regular", 400, normal);
+@include font("Raleway", "Raleway-Medium", 500, normal);
+@include font("Raleway", "Raleway-Bold", 700, normal);
