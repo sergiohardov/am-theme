@@ -12,6 +12,7 @@
   },
   "require": {
     "unsplash/unsplash": "^3.2",
-    "tgmpa/tgm-plugin-activation": "^2.6"
+    "tgmpa/tgm-plugin-activation": "^2.6",
+    "timber/timber": "^2.2"
   }
 }
