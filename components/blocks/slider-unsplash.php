@@ -12,7 +12,7 @@
     <?php } ?>
 
     <?php if ($args['slides']) { ?>
-        <div class="slider-unsplash__swiper swiper">
+        <div class="slider-unsplash__swiper slider-unsplash__swiper--<?php echo $args['fields']['orientation'] ?> swiper">
             <div class="swiper-wrapper">
                 <?php foreach ($args['slides'] as $slide) { ?>
                     <div class="slider-unsplash__swiper-slide swiper-slide">
