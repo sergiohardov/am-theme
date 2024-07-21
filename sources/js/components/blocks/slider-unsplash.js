@@ -2,10 +2,13 @@
   const acfBlockName = "slider-unsplash";
 
   var initializeBlock = function (block) {
-    const swiper = new Swiper(".slider-unsplash__swiper", {
+    const swiper = new Swiper(block.querySelector(".slider-unsplash__swiper"), {
       loop: true,
+      slidesPerView: 3,
+      spaceBetween: 20,
       pagination: {
-        el: ".slider-unsplash__swiper-pagination",
+        el: block.querySelector(".slider-unsplash__swiper-pagination"),
+        clickable: true,
       },
     });
   };
