@@ -32,9 +32,14 @@ if (!class_exists('AMTheme')) {
 
         private function defines()
         {
+            // Base
             define('AMTHEME_URI', get_template_directory_uri());
             define('AMTHEME_PATH', get_template_directory());
             define('AMTHEME_TEXTDOMAIN', 'am-theme');
+
+            // API Keys
+            define('AMTHEME_API_ACCESS_UNSPLASH', 'HgH7XQVUrOnnCEoMbOidNArRvWyrp4PFbRKI4GO8YGM');
+            define('AMTHEME_API_SECRET_UNSPLASH', 'DUGH5M9qsPr3OJ02nEJoY3FwKzNAJ6LhMOJeOnzyFho');
 
             // Customizer
             define('AMTHEME_FIELD_FOOTER_COPY', 'am_customizer_setting_footer_copyright');
