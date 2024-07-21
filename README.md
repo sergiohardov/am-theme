@@ -35,7 +35,7 @@ npm run build
 **includes** - Contains the main logic and functionality. An autoloader is connected to the folder.  
 **languages** - WP Codex.  
 **node_modules** - NPM packages.  
-**plugins** - Contains zip archives of plugins that are required to be installed. To add a plugin to the installation list, you need to add it in the `libs` method of the `Setup` file.  
+**plugins** - Contains zip archives of plugins that are required to be installed. To add a plugin to the installation list, you need to add it in the `muplugins` method of the `Setup` file.  
 **sources** - Folder processed by Gulp. For SCSS and JS, files whose names start with `_` will not be compiled as standalone files. These files need to be imported.  
 **vendor** - Composer packages.  
 **views** - The folder contains Twig templates.  

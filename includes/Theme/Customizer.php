@@ -36,7 +36,7 @@ class Customizer
             'section' => $this::SECTION_FOOTER,
             'label' => __('Copyright', AMTHEME_TEXTDOMAIN),
             'type' => 'text',
-            'description' => 'You can use <code>[date]</code> construction for show current date.',
+            'description' => __('You can use <code>[date]</code> construction for show current date.', AMTHEME_TEXTDOMAIN),
         ]);
     }
 }
