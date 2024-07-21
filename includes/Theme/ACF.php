@@ -3,6 +3,7 @@
 namespace AMTheme\Theme;
 
 use AMTheme\API\Unsplash;
+use Timber\Timber;
 
 class ACF
 {
@@ -72,12 +73,15 @@ class ACF
                 $unsplash = new Unsplash();
                 $slides = $unsplash->search_photos($fields['search'], 1, $fields['count'], $fields['orientation']);
 
-                get_template_part('/components/blocks/slider-unsplash', null, [
+
+                $context = Timber::context([
                     'anchor'    => amtheme_acf_block_anchor($block),
                     'class'     => amtheme_acf_block_class('slider-unsplash', $block),
                     'fields'    => $fields,
                     'slides'    => $slides
                 ]);
+
+                Timber::render('blocks/slider-unsplash.twig', $context);
             },
         ]);
     }
