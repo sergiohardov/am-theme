@@ -104,8 +104,8 @@ const scss = () => {
   return gulp
     .src(
       [
-        paths.sources.scss + "mainstyle.scss",
-        paths.sources.scss + "singles/**/*.scss",
+        paths.sources.scss + "**/*.scss",
+        "!" + paths.sources.scss + "**/_*.scss",
       ],
       {
         sourcemaps: true,
@@ -146,11 +146,10 @@ const js = () => {
   return (
     gulp
       .src(
-        [
-          paths.sources.js + "mainscript.js",
-          paths.sources.js + "singles/**/*.js",
-        ],
-        { sourcemaps: true }
+        [paths.sources.js + "**/*.js", "!" + paths.sources.js + "**/_*.js"],
+        {
+          sourcemaps: true,
+        }
       )
       .pipe(
         plumber(
