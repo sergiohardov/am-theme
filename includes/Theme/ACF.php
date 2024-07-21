@@ -2,7 +2,7 @@
 
 namespace AMTheme\Theme;
 
-use AMTheme\Blocks\SliderUnsplash;
+use AMTheme\API\Unsplash;
 
 class ACF
 {
@@ -61,12 +61,22 @@ class ACF
                 wp_enqueue_script('block-slider-unsplash', AMTHEME_URI . '/assets/js/components/blocks/slider-unsplash.min.js', ['swiper'], false, true);
             },
             'render_callback'   => function ($block) {
-                new SliderUnsplash($block, 'slider-unsplash', [
-                    'title'         => get_field('title'),
-                    'description'   => get_field('description'),
-                    'search'        => get_field('search'),
-                    'count'         => get_field('count') ?: 5,
-                    'orientation'   => get_field('orientation') ?: 'landscape',
+                $fields = [
+                    'title' => get_field('title'),
+                    'description' => get_field('description'),
+                    'search' => get_field('search'),
+                    'count' => get_field('count') ?: 5,
+                    'orientation' => get_field('orientation') ?: 'landscape',
+                ];
+
+                $unsplash = new Unsplash();
+                $slides = $unsplash->search_photos($fields['search'], 1, $fields['count'], $fields['orientation']);
+
+                get_template_part('/components/blocks/slider-unsplash', null, [
+                    'anchor'    => amtheme_acf_block_anchor($block),
+                    'class'     => amtheme_acf_block_class('slider-unsplash', $block),
+                    'fields'    => $fields,
+                    'slides'    => $slides
                 ]);
             },
         ]);
