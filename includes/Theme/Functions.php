@@ -34,3 +34,27 @@ function amtheme_acf_block_class($class, $block)
 
     return $result;
 }
+
+/**
+ * Function for show header menu in twig template
+ *
+ * @return void
+ */
+function amtheme_header_menu()
+{
+    wp_nav_menu([
+        'theme_location' => 'header',
+        'container' => false,
+        'menu_class' => 'site-header__menu'
+    ]);
+}
+
+/**
+ * Function for return copyright from customizer
+ *
+ * @return void
+ */
+function amtheme_footer_copy()
+{
+    return str_replace('[date]', date('Y'), get_theme_mod(AMTHEME_FIELD_FOOTER_COPY));
+}
