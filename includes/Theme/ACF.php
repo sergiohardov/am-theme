@@ -2,6 +2,8 @@
 
 namespace AMTheme\Theme;
 
+use AMTheme\Blocks\SliderUnsplash;
+
 class ACF
 {
     const JSON_PATH = AMTHEME_PATH . '/data/acf-json';
@@ -42,5 +44,31 @@ class ACF
 
     public function register_blocks()
     {
+        /* Slider Unsplash */
+        acf_register_block_type([
+            'name'              => 'slider-unsplash',
+            'title'             => __('Slider Unsplash', AMTHEME_TEXTDOMAIN),
+            'description'       => __('Custom Slider Unsplash Block.', AMTHEME_TEXTDOMAIN),
+            'category'          => $this::BLOCKS_CATEGORY,
+            'align'             => 'full',
+            'supports'          => [
+                'anchor'    => true,
+                'align'     => ['full'],
+                'mode'      => false,
+            ],
+            'enqueue_assets'    => function () {
+                wp_enqueue_style('block-slider-unsplash', AMTHEME_URI . '/assets/css/components/blocks/slider-unsplash.min.css', ['swiper']);
+                wp_enqueue_script('block-slider-unsplash', AMTHEME_URI . '/assets/js/components/blocks/slider-unsplash.min.js', ['swiper'], false, true);
+            },
+            'render_callback'   => function ($block) {
+                new SliderUnsplash($block, 'slider-unsplash', [
+                    'title'         => get_field('title'),
+                    'description'   => get_field('description'),
+                    'search'        => get_field('search'),
+                    'count'         => get_field('count') ?: 5,
+                    'orientation'   => get_field('orientation') ?: 'landscape',
+                ]);
+            },
+        ]);
     }
 }
