@@ -32,7 +32,7 @@ class Unsplash
                 if ($photos) {
                     foreach ($photos as $photo) {
                         $result[] = [
-                            'src' => $photo['urls']['full'],
+                            'src' => $photo['urls']['regular'],
                             'alt' => $photo['alt_description']
                         ];
                     }
